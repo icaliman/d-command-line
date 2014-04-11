@@ -1,0 +1,17 @@
+<index:>
+  <div id="d-command-line" as="container">
+    <ul id="commands-list" as="list">
+      {{each commands as #command}}
+        <li class="command">
+          <p class="command-text">{{@dash + #command.text}}</p>
+          {{if #command.result}}<p class="command-result">{{stringify(#command.result)}}</p>{{/if}}
+          {{if #command.error}}<p  class="command-error" style="color: red">{{#command.error}}</p>{{/if}}
+        </li>
+      {{/each}}
+    </ul>
+    {{if !waitingResponse}}
+      <form id="head" on-submit="newCommand()">
+        {{@dash}}<input value="{{command}}" autofocus>
+      </form>
+    {{/if}}
+  </div>

@@ -1,0 +1,24 @@
+{
+  "name": "d-command-line",
+  "description": "Command line Derby component",
+  "version": "0.0.1",
+  "main": "index.js",
+  "keywords": [
+    "derby",
+    "component",
+    "cmd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icaliman/d-command-line.git"
+  },
+  "bugs": {
+    "url": "https://github.com/icaliman/d-command-line/issues"
+  },
+  "author": {
+    "name": "John Caliman"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
