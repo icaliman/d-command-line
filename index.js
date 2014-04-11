@@ -18,7 +18,8 @@ CommandLine.prototype.newCommand = function() {
 
   this.emit('newCommand', command, function(err, result) {
     if (err) {
-      model.set("commands." + (index - 1) + ".error", err);
+      model.set("commands." + (index - 1) + ".error", true);
+      model.set("commands." + (index - 1) + ".result", err);
     } else {
       model.set("commands." + (index - 1) + ".result", result);
     }
@@ -31,4 +32,8 @@ CommandLine.prototype.stringify = function(e) {
     return JSON.stringify(e);
   }
   return e && e + '';
+};
+
+CommandLine.prototype.selectCommandInput = function() {
+  this.commandInput.focus();
 };

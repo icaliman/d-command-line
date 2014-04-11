@@ -1,17 +1,18 @@
 <index:>
-  <div id="d-command-line" as="container">
-    <ul id="commands-list" as="list">
+  <div id="d-command-line" as="container" on-click="selectCommandInput()">
+    <ul id="cmd-commands-list" as="list">
       {{each commands as #command}}
         <li class="command">
-          <p class="command-text">{{@dash + #command.text}}</p>
-          {{if #command.result}}<p class="command-result">{{stringify(#command.result)}}</p>{{/if}}
-          {{if #command.error}}<p  class="command-error" style="color: red">{{#command.error}}</p>{{/if}}
+          <span class="cmd-dash">{{@dash}}</span>
+          <span class="command-text">{{#command.text}}</span>
+          <p class="command-result {{if #command.error}}command-error{{/if}}">{{stringify(#command.result)}}</p>
         </li>
       {{/each}}
     </ul>
     {{if !waitingResponse}}
-      <form id="head" on-submit="newCommand()">
-        {{@dash}}<input value="{{command}}" autofocus>
+      <form on-submit="newCommand()">
+        <span class="cmd-dash cmd-dash-cursor">{{@dash}}</span>
+        <input as="commandInput" class="cmd-input" value="{{command}}" autofocus>
       </form>
     {{/if}}
   </div>
